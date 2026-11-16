@@ -1,0 +1,46 @@
+---
+import '@fontsource/source-serif-4/300.css';
+import '@fontsource/source-serif-4/400.css';
+import '@fontsource/source-serif-4/400-italic.css';
+import '@fontsource/source-serif-4/600.css';
+import '@fontsource/noto-serif-sc/400.css';
+import '@fontsource/noto-serif-sc/600.css';
+import '@fontsource/cormorant-garamond/600-italic.css';
+import '@fontsource/jetbrains-mono/400.css';
+import '../styles/global.css';
+import { site } from '../site.mjs';
+
+const { title, description = site.description, lang = 'zh-CN', current = '' } = Astro.props;
+const pageTitle = title ? `${title} · ${site.name}` : site.name;
+const year = new Date().getUTCFullYear();
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title={site.name} href="/rss.xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="/" lang="en">{site.name}</a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/" aria-current={current === 'posts' ? 'page' : undefined}>文章</a>
+        <a href="/about/" aria-current={current === 'about' ? 'page' : undefined}>关于</a>
+        <a class="nav-rss" href="/rss.xml">RSS</a>
+      </nav>
+    </header>
+    <div class="sheet">
+      <main class="column">
+        <slot />
+      </main>
+    </div>
+    <footer class="site-footer">
+      © {year} {site.name} · <a href="/rss.xml">RSS</a>
+    </footer>
+  </body>
+</html>

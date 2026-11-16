@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import { Content } from '../content/about.md';
+---
+
+<Base title="关于" current="about">
+  <header class="page-head">
+    <h1>关于</h1>
+    <p class="subtitle">About</p>
+  </header>
+  <div class="prose">
+    <Content />
+  </div>
+</Base>

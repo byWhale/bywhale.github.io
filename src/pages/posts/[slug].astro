@@ -1,0 +1,47 @@
+---
+import Base from '../../layouts/Base.astro';
+import { posts, cnDate, ymd, isCJK } from '../../lib/posts.mjs';
+
+export function getStaticPaths() {
+  return posts.map((post) => ({ params: { slug: post.slug } }));
+}
+
+const index = posts.findIndex((post) => post.slug === Astro.params.slug);
+const post = posts[index];
+// 列表是从新到旧排的：下一篇更新，上一篇更旧
+const newer = posts[index - 1];
+const older = posts[index + 1];
+const { Content } = post;
+const htmlLang = post.lang === 'en' ? 'en' : 'zh-CN';
+---
+
+<Base title={post.title} description={post.description || undefined} lang={htmlLang}>
+  <article>
+    <header class="page-head">
+      <p class="meta">
+        {post.category} · <time datetime={ymd(post.date)}>{cnDate(post.date)}</time>
+      </p>
+      <h1 class={isCJK(post.title) ? undefined : 'latin'}>{post.title}</h1>
+      {post.subtitle && <p class="subtitle">{post.subtitle}</p>}
+    </header>
+    <div class="prose" lang={post.lang === 'en' ? 'en' : undefined}>
+      <Content />
+    </div>
+    {
+      (older || newer) && (
+        <nav class="post-nav" aria-label="上一篇和下一篇">
+          {older && (
+            <a class="prev" href={older.url}>
+              ← {older.title}
+            </a>
+          )}
+          {newer && (
+            <a class="next" href={newer.url}>
+              {newer.title} →
+            </a>
+          )}
+        </nav>
+      )
+    }
+  </article>
+</Base>

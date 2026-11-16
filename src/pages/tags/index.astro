@@ -1,0 +1,46 @@
+---
+// 标签页。页面会生成在 /tags/，但导航里暂时没有入口，文章多了再加。
+import Base from '../../layouts/Base.astro';
+import { postsByTag, ymd, isCJK } from '../../lib/posts.mjs';
+
+const tags = postsByTag();
+---
+
+<Base title="标签">
+  <header class="page-head">
+    <h1>标签</h1>
+    <p class="subtitle">Tags</p>
+  </header>
+  {tags.length === 0 && <p class="empty">还没有标签。</p>}
+  <ul class="tag-cloud">
+    {
+      tags.map(({ tag, posts }) => (
+        <li>
+          <a href={`#${encodeURIComponent(tag)}`}>
+            {tag}
+            <span class="count">{posts.length}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  {
+    tags.map(({ tag, posts }) => (
+      <section class="post-group" id={encodeURIComponent(tag)}>
+        <h2 class={isCJK(tag) ? undefined : 'latin'}>
+          {tag} <span class="count">{posts.length}</span>
+        </h2>
+        <ul class="post-list">
+          {posts.map((post) => (
+            <li>
+              <a href={post.url} class={isCJK(post.title) ? undefined : 'latin'} lang={post.lang}>
+                {post.title}
+              </a>
+              <span class="when">{ymd(post.date)}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</Base>
