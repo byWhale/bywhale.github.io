@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>排版示例：把想法写下来 · Weijiang</title><meta name="description" content="一篇用来检查排版的示例文章，覆盖了标题、引文、列表、表格、代码和脚注。"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="Weijiang" href="/rss.xml"><link rel="stylesheet" href="/_astro/about.B9VCZ-sd.css"></head> <body> <header class="site-header"> <a class="wordmark" href="/" lang="en">Weijiang</a> <nav class="site-nav" aria-label="主导航"> <a href="/">文章</a> <a href="/about/">关于</a> <a class="nav-rss" href="/rss.xml">RSS</a> </nav> </header> <div class="sheet"> <main class="column">  <article> <header class="page-head"> <p class="meta"> 随笔 · <time datetime="2026-11-16">2026 年 11 月 16 日</time> </p> <h1>排版示例：把想法写下来</h1> <p class="subtitle">A sample post for checking typography</p> </header> <div class="prose"> <p><em>这是一篇用来检查排版的示例文章，内容是占位的。写了第一篇真正的文章之后可以把它删掉。</em></p>
+<p>很多想法待在脑子里的时候，看起来是完整的。直到试着把它写下来，才发现中间缺了好几步。Writing 不只是表达的工具，它本身就是<strong>思考发生的地方</strong>。<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup></p>
+<p>所以我更愿意把一篇文章看成一次 <a href="https://en.wikipedia.org/wiki/Debugging">debugging</a>：你带着一个模糊的直觉开始，写到一半被自己的句子反驳，然后回头修改前提。这个过程<em>并不舒服</em>，但它是唯一可靠的检查。</p>
+<blockquote>
+<p>写不清楚，多半是还没想清楚。</p>
+</blockquote>
+<h2 id="三个步骤">三个步骤</h2>
+<p>我现在写东西大致分三步：</p>
+<ol>
+<li>先用一句话写出结论，写不出来就先不动笔。</li>
+<li>把最强的反对意见写出来，看结论还站不站得住。</li>
+<li>删掉所有“显然”和“众所周知”。</li>
+</ol>
+<p>每一步关心的东西不一样：</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>目标</th>
+<th>可以先不管</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>草稿 Draft</td>
+<td>把想法倒出来</td>
+<td>措辞、结构</td>
+</tr>
+<tr>
+<td>修改 Revise</td>
+<td>找出缺的那几步</td>
+<td>文采</td>
+</tr>
+<tr>
+<td>定稿 Final</td>
+<td>让别人读得懂</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="技术文章也一样">技术文章也一样</h2>
+<p>一段解释不清楚的代码，通常是因为自己还没有想清楚它在做什么。比如一个 <code>debounce</code>，写之前先用一句话说出它的行为：</p>
+<ul>
+<li>连续触发时不执行；</li>
+<li>停下来超过 <code>wait</code> 毫秒，才执行最后一次。</li>
+</ul>
+<pre class="astro-code weijiang" style="background-color:#F2F4F7;color:#24282E; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#5B6370">// 停止触发 wait 毫秒后，才执行最后一次</span></span>
+<span class="line"><span style="color:#34506E">function</span><span style="color:#24282E"> debounce(fn, wait = </span><span style="color:#8C4A3A">200</span><span style="color:#24282E">) {</span></span>
+<span class="line"><span style="color:#34506E">  let</span><span style="color:#24282E"> timer;</span></span>
+<span class="line"><span style="color:#34506E">  return</span><span style="color:#24282E"> (...args) => {</span></span>
+<span class="line"><span style="color:#24282E">    clearTimeout(timer);</span></span>
+<span class="line"><span style="color:#24282E">    timer = setTimeout(() => fn(...args), wait);</span></span>
+<span class="line"><span style="color:#24282E">  };</span></span>
+<span class="line"><span style="color:#24282E">}</span></span></code></pre>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">注释</h2>
+<ol>
+<li id="user-content-fn-1">
+<p>这是一条示例脚注，用来检查脚注的样式。 <a href="#user-content-fnref-1" data-footnote-backref="" aria-label="回到正文" class="data-footnote-backref">↩</a></p>
+</li>
+</ol>
+</section> </div>  </article>  </main> </div> <footer class="site-footer">
+© 2026 Weijiang · <a href="/rss.xml">RSS</a> </footer> </body></html>

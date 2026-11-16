@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Weijiang</title>
+    <link>https://bywhale.github.io/</link>
+    <description>Weijiang 的个人博客：随笔与技术文章。</description>
+    <language>zh-CN</language>
+    <atom:link href="https://bywhale.github.io/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>排版示例：把想法写下来</title>
+      <link>https://bywhale.github.io/posts/typography-sample/</link>
+      <guid isPermaLink="true">https://bywhale.github.io/posts/typography-sample/</guid>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+      <category>随笔</category>
+      <description>一篇用来检查排版的示例文章，覆盖了标题、引文、列表、表格、代码和脚注。</description>
+    </item>
+  </channel>
+</rss>
